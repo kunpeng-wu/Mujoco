@@ -1,0 +1,15 @@
+Mon Dec  4 20:00:04 2023
+WARNING: mju_openResource: unknown file '../model/robot_hand/test.xml'
+
+Tue Dec 12 10:14:00 2023
+WARNING: mju_openResource: unknown file '../model/mujoco_menagerie/shadow_hand/scene_right.xml'
+
+Tue Dec 12 10:28:58 2023
+ERROR: mjv_updateSceneState: m->nbody changed
+
+Tue Dec 12 10:32:28 2023
+WARNING: mju_openResource: unknown file '../model/robot_hand/hand_right.xml'
+
+Tue Dec 12 11:36:54 2023
+WARNING: mju_openResource: unknown file '../robot_hand/body_only.xml'
+

@@ -1,0 +1,25 @@
+<mujoco>
+  <option gravity="0 0 0"/>
+  <asset>
+    <material name="floor" texture="checks1" texrepeat="5 5" texuniform="true"/>
+    <texture name="checks1" builtin="checker" type="2d" width="256" height="256" rgb1="1 1 1" rgb2="0 0 0"/>
+    <material name="object" texture="checks2" texrepeat="2 2" texuniform="true"/>
+    <texture name="checks2" builtin="checker" type="2d" width="256" height="256" rgb1="1 0 0" rgb2="0 1 0"/>
+  </asset>
+  <worldbody>
+    <light diffuse=".5 .5 .5" pos="0 0 10" dir="0 0 -1"/>
+    <geom type="plane" size="2 2 0.1" material="floor"/>
+    <body pos="0.5 0 0.1" euler="0 90 0">
+      <joint type="hinge" name="hinge:1" axis="-1 0 0" pos="0 0 -0.5"/>
+      <geom type="cylinder" size="0.05 0.5" rgba="1 .3 0 1"/>
+      <body pos="0 0 1" euler="0 0 0">
+        <joint type="hinge" name="hinge:2" axis="-1 0 0" pos="0 0 -0.5"/>
+        <geom type="cylinder" size="0.05 0.5" rgba="0 .3 0.5 1"/>
+        <site name="tip" size="0.1" pos="0 0 0.5"/>
+      </body>
+    </body>
+  </worldbody>
+  <sensor>
+    <framepos objtype="site" objname="tip"/>
+  </sensor>
+</mujoco>

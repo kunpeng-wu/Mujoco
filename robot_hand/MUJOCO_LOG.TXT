@@ -1,0 +1,6 @@
+Sun Dec 17 16:48:05 2023
+WARNING: mju_openResource: unknown file '../../model/robot_hand/body_new.xml'
+
+Sun Dec 17 16:48:51 2023
+WARNING: mju_openResource: unknown file '../../../model/robot_hand/body_new.xml'
+

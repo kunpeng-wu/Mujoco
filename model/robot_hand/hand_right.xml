@@ -1,0 +1,197 @@
+<mujoco model="hand_right_sim">
+    <compiler angle="radian" meshdir="/home/kavin/Documents/RosProjects/robot_ws/src/hand_right_sim/meshes/" />
+
+    <default>
+        <geom density="5.0" />
+        <default class="joint">
+            <joint axis="1 0 0" range="-3.14 3.14" limited="true" damping="0.8" armature="0.0002" frictionloss="0.01"/>
+            <position kp="8" forcerange="-2 2" forcelimited="true"/>
+        </default>
+    </default>
+
+    <size njmax="500" nconmax="100" />
+    <asset>
+        <mesh name="palm_right" file="palm_right.STL" />
+        <mesh name="finger_11_right" file="finger_11_right.STL" />
+        <mesh name="finger_12_right" file="finger_12_right.STL" />
+        <mesh name="finger_13_right" file="finger_13_right.STL" />
+        <mesh name="finger_14_right" file="finger_14_right.STL" />
+        <mesh name="finger_21_right" file="finger_21_right.STL" />
+        <mesh name="finger_22_right" file="finger_22_right.STL" />
+        <mesh name="finger_23_right" file="finger_23_right.STL" />
+        <mesh name="finger_31_right" file="finger_31_right.STL" />
+        <mesh name="finger_32_right" file="finger_32_right.STL" />
+        <mesh name="finger_33_right" file="finger_33_right.STL" />
+        <mesh name="finger_41_right" file="finger_41_right.STL" />
+        <mesh name="finger_42_right" file="finger_42_right.STL" />
+        <mesh name="finger_43_right" file="finger_43_right.STL" />
+        <mesh name="finger_51_right" file="finger_51_right.STL" />
+        <mesh name="finger_52_right" file="finger_52_right.STL" />
+        <mesh name="finger_53_right" file="finger_53_right.STL" />
+
+    </asset>
+    <worldbody>
+        <body name="palm_right">
+<!--            <site name="g_x" pos="0.1 0 0" size="0.005 .1"  quat="0.707105  0 0.707108 0 " rgba="1 0 0 1" type="cylinder" group="1"/>-->
+<!--            <site name="g_y" pos="0 0.1 0" size="0.005 .1" quat="0.707105 0.707108 0 0" rgba="0 1 0 1" type="cylinder" group="1"/>-->
+<!--            <site name="g_z" pos="0 0 0.1" size="0.005 .1" quat="1 0 0 0" rgba="0 0 1 1" type="cylinder" group="1"/>-->
+<!--            <site name="ft_frame" pos="0 0 0" size="0.01 0.01 0.01" rgba="1 0 0 1" type="sphere" group="1" />-->
+            <body name="eef" pos="0 0.03 0.08" >
+                <site name="grip_site" pos="0 0 0" size="0.01 0.01 0.01" rgba="1 0 0 0.5" type="sphere" group="1"/>
+                <site name="ee_x" pos="0.1 0 0" size="0.005 .1"  quat="0.707105  0 0.707108 0 " rgba="1 0 0 1" type="cylinder" group="1"/>
+                <site name="ee_y" pos="0 0.1 0" size="0.005 .1" quat="0.707105 0.707108 0 0" rgba="0 1 0 1" type="cylinder" group="1"/>
+                <site name="ee_z" pos="0 0 0.1" size="0.005 .1" quat="1 0 0 0" rgba="0 0 1 1" type="cylinder" group="1"/>
+                <site name="grip_site_cylinder" pos="0 0 0" size="0.008 1" quat="0.707105  0 0.707108 0 " rgba="0 1 0 0.3" type="cylinder" group="1"/>
+            </body>
+
+            <geom type="mesh" contype="0" conaffinity="0" group="1" rgba="0.792157 0.819608 0.933333 1" mesh="palm_right" />
+            <geom type="mesh" rgba="0.792157 0.819608 0.933333 1" mesh="palm_right" />
+            <body name="finger_11_right" pos="-0.033156 0 0.046854" quat="-0.016518 0.473908 -0.0306641 -0.879885">
+                <inertial pos="0 0 0.00296384" quat="0.707107 0 0 0.707107" mass="0.00158261" diaginertia="6.47978e-08 5.66929e-08 5.56708e-08" />
+                <joint class="joint" name="j_11_right" />
+                <geom type="mesh" contype="0" conaffinity="0" group="1" rgba="0.792157 0.819608 0.933333 1" mesh="finger_11_right" />
+                <geom type="mesh" rgba="0.792157 0.819608 0.933333 1" mesh="finger_11_right" />
+                <body name="finger_12_right" pos="0 0 0.005" quat="0.997871 0 0 -0.0652237">
+                    <inertial pos="3.05329e-11 9.19322e-11 0.00925016" quat="0.707107 0 0 0.707107" mass="0.00237615" diaginertia="1.18675e-07 1.15819e-07 1.06634e-07" />
+                    <joint class="joint" name="j_12_right" axis="0 0 -1" />
+                    <geom type="mesh" contype="0" conaffinity="0" group="1" rgba="0.792157 0.819608 0.933333 1" mesh="finger_12_right" />
+                    <geom type="mesh" rgba="0.792157 0.819608 0.933333 1" mesh="finger_12_right" />
+                    <body name="finger_13_right" pos="0 0 0.0175" quat="0.998171 0.0604581 0 0">
+                        <inertial pos="3.32826e-08 -2.58391e-07 0.0134786" quat="0.70734 -4.62782e-06 4.62477e-06 0.706874" mass="0.00477507" diaginertia="5.13037e-07 5.06539e-07 1.11818e-07" />
+                        <joint class="joint" name="j_13_right" />
+                        <geom type="mesh" contype="0" conaffinity="0" group="1" rgba="0.792157 0.819608 0.933333 1" mesh="finger_13_right" />
+                        <geom type="mesh" rgba="0.792157 0.819608 0.933333 1" mesh="finger_13_right" />
+                        <body name="finger_14_right" pos="0 0 0.027" quat="0.999977 0.00681395 0 0">
+                            <inertial pos="1.25821e-05 -0.000148496 0.0147394" quat="0.704726 0.00742858 -0.00610786 0.709414" mass="0.00459559" diaginertia="3.58607e-07 3.47268e-07 1.55218e-07" />
+                            <joint class="joint" name="j_14_right" />
+                            <geom type="mesh" contype="0" conaffinity="0" group="1" rgba="0.792157 0.819608 0.933333 1" mesh="finger_14_right" />
+                            <geom type="mesh" rgba="0.792157 0.819608 0.933333 1" mesh="finger_14_right" />
+                        </body>
+                    </body>
+                </body>
+            </body>
+            <body name="finger_21_right" pos="-0.02313 -2.8663e-05 0.10261" quat="-0.00170588 0.14653 -0.0114914 -0.989138">
+                <inertial pos="-3.24188e-08 -2.51413e-07 0.0147548" quat="0.706869 4.57171e-06 -4.57478e-06 0.707344" mass="0.00477507" diaginertia="5.13037e-07 5.06539e-07 1.11818e-07" />
+                <joint class="joint" name="j_21_right" />
+                <geom type="mesh" contype="0" conaffinity="0" group="1" rgba="0.792157 0.819608 0.933333 1" mesh="finger_21_right" />
+                <geom type="mesh" rgba="0.792157 0.819608 0.933333 1" mesh="finger_21_right" />
+                <body name="finger_22_right" pos="0 0 0.028233" quat="0.999999 0.001304 0 0">
+                    <inertial pos="0 0 0.0105" mass="0.00239726" diaginertia="1.69655e-07 1.65763e-07 9.58619e-08" />
+                    <joint class="joint" name="j_22_right" />
+                    <geom type="mesh" contype="0" conaffinity="0" group="1" rgba="0.792157 0.819608 0.933333 1" mesh="finger_22_right" />
+                    <geom type="mesh" rgba="0.792157 0.819608 0.933333 1" mesh="finger_22_right" />
+                    <body name="finger_23_right" pos="0 0 0.021" quat="0.999026 0.0441192 0 0">
+                        <inertial pos="1.85149e-05 -3.04051e-05 0.0092181" quat="0.713348 0.00165559 0.000484126 0.700808" mass="0.00351083" diaginertia="2.40712e-07 2.34318e-07 7.61094e-08" />
+                        <joint class="joint" name="j_23_right" />
+                        <geom type="mesh" contype="0" conaffinity="0" group="1" rgba="0.792157 0.819608 0.933333 1" mesh="finger_23_right" />
+                        <geom type="mesh" rgba="0.792157 0.819608 0.933333 1" mesh="finger_23_right" />
+                    </body>
+                </body>
+            </body>
+            <body name="finger_31_right" pos="-0.003285 -4.5506e-05 0.10551" quat="-3.67258e-06 -6.77539e-08 -0.0184455 -0.99983">
+                <inertial pos="-3.39863e-08 -2.51284e-07 0.0147548" quat="0.706871 4.57009e-06 -4.57313e-06 0.707342" mass="0.00477507" diaginertia="5.13037e-07 5.06539e-07 1.11818e-07" />
+                <joint class="joint" name="j_31_right" />
+                <geom type="mesh" contype="0" conaffinity="0" group="1" rgba="0.792157 0.819608 0.933333 1" mesh="finger_31_right" />
+                <geom type="mesh" rgba="0.792157 0.819608 0.933333 1" mesh="finger_31_right" />
+                <body name="finger_32_right" pos="0 0 0.028233" quat="0.999949 0.0101153 0 0">
+                    <inertial pos="0 0 0.0125" mass="0.00316954" diaginertia="2.43247e-07 2.35819e-07 1.2078e-07" />
+                    <joint class="joint" name="j_32_right" />
+                    <geom type="mesh" contype="0" conaffinity="0" group="1" rgba="0.792157 0.819608 0.933333 1" mesh="finger_32_right" />
+                    <geom type="mesh" rgba="0.792157 0.819608 0.933333 1" mesh="finger_32_right" />
+                    <body name="finger_33_right" pos="0 0 0.025" quat="0.999542 -0.0302699 0 0">
+                        <inertial pos="1.96253e-05 -3.05034e-05 0.0109935" quat="0.713622 0.0013122 0.00048852 0.70053" mass="0.00407939" diaginertia="3.4499e-07 3.3759e-07 9.02118e-08" />
+                        <joint class="joint" name="j_33_right" />
+                        <geom type="mesh" contype="0" conaffinity="0" group="1" rgba="0.792157 0.819608 0.933333 1" mesh="finger_33_right" />
+                        <geom type="mesh" rgba="0.792157 0.819608 0.933333 1" mesh="finger_33_right" />
+                    </body>
+                </body>
+            </body>
+            <body name="finger_41_right" pos="0.015838 -1.4117e-05 0.10369" quat="-0.000562628 0.097747 0.00569144 0.995195">
+                <inertial pos="-3.23356e-08 -2.51413e-07 0.0147548" quat="0.706869 4.5718e-06 -4.57488e-06 0.707344" mass="0.00477507" diaginertia="5.13037e-07 5.06539e-07 1.11818e-07" />
+                <joint class="joint" name="j_41_right" />
+                <geom type="mesh" contype="0" conaffinity="0" group="1" rgba="0.792157 0.819608 0.933333 1" mesh="finger_41_right" />
+                <geom type="mesh" rgba="0.792157 0.819608 0.933333 1" mesh="finger_41_right" />
+                <body name="finger_42_right" pos="0 0 0.028233" quat="0.999279 -0.0379669 0 0">
+                    <inertial pos="0 0 0.011" mass="0.00259033" diaginertia="1.86013e-07 1.81238e-07 1.02092e-07" />
+                    <joint class="joint" name="j_42_right" />
+                    <geom type="mesh" contype="0" conaffinity="0" group="1" rgba="0.792157 0.819608 0.933333 1" mesh="finger_42_right" />
+                    <geom type="mesh" rgba="0.792157 0.819608 0.933333 1" mesh="finger_42_right" />
+                    <body name="finger_43_right" pos="0 0 0.022" quat="0.999968 0.00801491 0 0">
+                        <inertial pos="1.83811e-05 -3.04115e-05 0.0092181" quat="0.713529 0.00165383 0.000482434 0.700624" mass="0.00351084" diaginertia="2.40711e-07 2.34319e-07 7.61093e-08" />
+                        <joint class="joint" name="j_43_right" />
+                        <geom type="mesh" contype="0" conaffinity="0" group="1" rgba="0.792157 0.819608 0.933333 1" mesh="finger_43_right" />
+                        <geom type="mesh" rgba="0.792157 0.819608 0.933333 1" mesh="finger_43_right" />
+                    </body>
+                </body>
+            </body>
+            <body name="finger_51_right" pos="0.032204 7.2479e-05 0.099742" quat="0.00415502 0.141408 -0.0291001 0.989515">
+                <inertial pos="-3.37018e-08 -2.63901e-07 0.0147548" quat="0.706874 4.61041e-06 -4.61345e-06 0.70734" mass="0.00477507" diaginertia="5.13037e-07 5.06539e-07 1.11818e-07" />
+                <joint class="joint" name="j_51_right" />
+                <geom type="mesh" contype="0" conaffinity="0" group="1" rgba="0.792157 0.819608 0.933333 1" mesh="finger_51_right" />
+                <geom type="mesh" rgba="0.792157 0.819608 0.933333 1" mesh="finger_51_right" />
+                <body name="finger_52_right" pos="0 0 0.028233" quat="0.998235 0.05939 0 0">
+                    <inertial pos="0 0 0.01" mass="0.00220419" diaginertia="1.54494e-07 1.51487e-07 8.96323e-08" />
+                    <joint class="joint" name="j_52_right" />
+                    <geom type="mesh" contype="0" conaffinity="0" group="1" rgba="0.792157 0.819608 0.933333 1" mesh="finger_52_right" />
+                    <geom type="mesh" rgba="0.792157 0.819608 0.933333 1" mesh="finger_52_right" />
+                    <body name="finger_53_right" pos="0 0 0.02" quat="0.99979 -0.0204711 0 0">
+                        <inertial pos="1.7743e-05 -3.12533e-05 0.00785414" quat="0.712265 0.0020625 0.000429525 0.701908" mass="0.00308471" diaginertia="1.78799e-07 1.73044e-07 6.55991e-08" />
+                        <joint class="joint" name="j_53_right" />
+                        <geom type="mesh" contype="0" conaffinity="0" group="1" rgba="0.792157 0.819608 0.933333 1" mesh="finger_53_right" />
+                        <geom type="mesh" rgba="0.792157 0.819608 0.933333 1" mesh="finger_53_right" />
+                    </body>
+                </body>
+            </body>
+        </body>
+    </worldbody>
+
+    <contact>
+        <exclude body1="palm_right" body2="finger_11_right"/>
+        <exclude body1="palm_right" body2="finger_12_right"/>
+        <exclude body1="palm_right" body2="finger_21_right"/>
+        <exclude body1="palm_right" body2="finger_31_right"/>
+        <exclude body1="palm_right" body2="finger_41_right"/>
+        <exclude body1="palm_right" body2="finger_51_right"/>
+    </contact>
+
+    <tendon>
+        <fixed name="j_20_right">
+          <joint joint="j_22_right" coef="1"/>
+          <joint joint="j_23_right" coef="1"/>
+        </fixed>
+        <fixed name="j_30_right">
+          <joint joint="j_32_right" coef="1"/>
+          <joint joint="j_33_right" coef="1"/>
+        </fixed>
+        <fixed name="j_40_right">
+          <joint joint="j_42_right" coef="1"/>
+          <joint joint="j_43_right" coef="1"/>
+        </fixed>
+        <fixed name="j_50_right">
+          <joint joint="j_52_right" coef="1"/>
+          <joint joint="j_53_right" coef="1"/>
+        </fixed>
+    </tendon>
+    <actuator>
+        <position class="joint" name="j11_right_T" joint="j_11_right" ctrllimited="true" ctrlrange="0 1.57" />
+        <position class="joint" name="j12_right_T" joint="j_12_right" ctrllimited="true" ctrlrange="0 1.8" />
+        <position class="joint" name="j13_right_T" joint="j_13_right" ctrllimited="true" ctrlrange="0 1.57"/>
+        <position class="joint" name="j14_right_T" joint="j_14_right" ctrllimited="true" ctrlrange="0 1.57"/>
+        <position class="joint" name="j21_right_T" joint="j_21_right" ctrllimited="true" ctrlrange="0 1.57" />
+        <position class="joint" name="j20_right_T" tendon="j_20_right" ctrllimited="true" ctrlrange="0 2.14" />
+<!--        <position class="joint" name="j22_right_T" joint="j_22_right" ctrllimited="true" />-->
+<!--        <position class="joint" name="j23_right_T" joint="j_23_right" ctrllimited="true" />-->
+        <position class="joint" name="j31_right_T" joint="j_31_right" ctrllimited="true" ctrlrange="0 1.57" />
+        <position class="joint" name="j30_right_T" tendon="j_30_right" ctrllimited="true" ctrlrange="0 2.14" />
+<!--        <position class="joint" name="j32_right_T" joint="j_32_right" ctrllimited="true" />-->
+<!--        <position class="joint" name="j33_right_T" joint="j_33_right" ctrllimited="true" />-->
+        <position class="joint" name="j41_right_T" joint="j_41_right" ctrllimited="true" ctrlrange="0 1.57" />
+        <position class="joint" name="j40_right_T" tendon="j_40_right" ctrllimited="true" ctrlrange="0 2.14" />
+<!--        <position class="joint" name="j42_right_T" joint="j_42_right" ctrllimited="true" />-->
+<!--        <position class="joint" name="j43_right_T" joint="j_43_right" ctrllimited="true" />-->
+        <position class="joint" name="j51_right_T" joint="j_51_right" ctrllimited="true" ctrlrange="0 1.57" />
+        <position class="joint" name="j50_right_T" tendon="j_50_right" ctrllimited="true" ctrlrange="0 2.14" />
+<!--        <position class="joint" name="j52_right_T" joint="j_52_right" ctrllimited="true" />-->
+<!--        <position class="joint" name="j53_right_T" joint="j_53_right" ctrllimited="true" />-->
+    </actuator>
+</mujoco>

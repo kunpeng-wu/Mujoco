@@ -1,0 +1,248 @@
+<mujoco model="robot_sim">
+<!--    <compiler angle="radian" meshdir="/home/kavin/Documents/RosProjects/robot_ws/src/robot_sim/meshes/" />-->
+<!--    <compiler angle="radian" meshdir="/home/kavin/Documents/RosProjects/robot_ws/src/robot_sim/meshes/" coordinate="local" inertiafromgeom="true"/>-->
+<!--    <option integrator="RK4" timestep="0.01"/>-->
+    <compiler angle="radian"
+          inertiafromgeom="true"
+          texturedir="textures/"
+          meshdir="/home/kavin/Documents/RosProjects/robot_ws/src/robot_sim/meshes/"
+          />
+    <option timestep="2e-3"
+            iterations="100"
+            tolerance="1e-10"
+            impratio="100"/>
+
+    <default class="robot_sim">
+        <material specular="0.5" shininess="0.25"/>
+        <joint limited="true" armature="0.0002" frictionloss="0.01"/>
+        <general dyntype="none" biastype="affine" ctrlrange="-2.8973 2.8973"/>
+<!--        <position kp="8" />-->
+<!--            <geom conaffinity='1' condim='3' density="5.0" friction="1 0.5 0.5" margin="1e-3" solref=".01 1" solimp=".99 .99 .01" />-->
+        <geom density="5.0"  />
+        <default class="shoulder_1">
+            <joint axis="1 0 0" range="-3.14 3.14" damping="1"/>
+            <position ctrlrange="-3.14 3.14"/>
+        </default>
+        <default class="shoulder_2">
+            <joint axis="0 1 0" range="-3.14 3.14" damping="2"/>
+            <position ctrlrange="-1.57 1.57"/>
+        </default>
+        <default class="shoulder_3">
+            <joint axis="1 0 0" range="-3.14 3.14" damping="1"/>
+            <position ctrlrange="-2 2"/>
+        </default>
+        <default class="elbow">
+            <joint axis="0 0 -1" range="-3.14 3.14" damping="1"/>
+            <position ctrlrange="-1.57 1.57"/>
+        </default>
+        <default class="wrist_1">
+            <joint axis="1 0 0" range="-3.14 3.14" damping="1"/>
+            <position ctrlrange="-3.14 3.14"/>
+        </default>
+        <default class="wrist_2">
+            <joint axis="0 0 -1" range="-3.14 3.14" damping="1"/>
+            <position ctrlrange="-1.57 1.57"/>
+        </default>
+        <default class="neck">
+            <joint axis="0 0 -1" range="-3.14 3.14" damping="2"/>
+            <position ctrlrange="-1.57 1.57"/>
+        </default>
+        <default class="head">
+            <joint axis="-1 0 0" range="-3.14 3.14" damping="2"/>
+            <position ctrlrange="-0.3 0.3"/>
+        </default>
+        <default class="visual">
+            <geom type="mesh" contype="0" conaffinity="0" group="0" material="dark"/>
+        </default>
+    </default>
+<!--    <default>-->
+<!--        <site rgba="0.8 0.6 0.7 0.3" type="ellipsoid" group="3"/>-->
+<!--        <geom contype='1' conaffinity='1' condim='4'  margin="1e-3" solref=".01 1" solimp=".99 .99 .01" />-->
+<!--        <joint armature="0.01" damping=".1"/>-->
+<!--        <default class="UR5">-->
+<!--            <joint damping='65'/>-->
+<!--        </default>-->
+<!--        <default class="UR5e">-->
+<!--            <joint damping='45'/>-->
+<!--        </default>-->
+<!--        <default class="GRIPPER">-->
+<!--            <joint damping='5'/>-->
+<!--        </default>-->
+<!--    </default>-->
+    <size njmax="500" nconmax="100" />
+    <asset>
+
+        <texture builtin="gradient" height="100" rgb1=".4 .5 .6" rgb2="0 0 0" type="skybox" width="100"/>
+        <texture name="texplane" type="2d" builtin="checker" rgb1=".2 .3 .4" rgb2=".1 0.15 0.2" width="100" height="100" />
+        <material name="MatPlane" reflectance="0.5" texture="texplane" texrepeat="1 1" texuniform="true" />
+
+<!--        <texture builtin="gradient" height="100" rgb1="1 1 1" rgb2="0 0 0" type="skybox" width="100"/>-->
+<!--        <texture builtin="flat" height="1278" mark="cross" markrgb="1 1 1" name="texgeom" random="0.01" rgb1="0.8 0.6 0.4" rgb2="0.8 0.6 0.4" type="cube" width="127"/>-->
+<!--        <texture builtin="checker" height="100" name="texplane" rgb1="0 0 0" rgb2="0.8 0.8 0.8" type="2d" width="100"/>-->
+<!--        <material name="MatPlane" reflectance="0.5" shininess="1" specular="1" texrepeat="60 60" texture="texplane"/>-->
+<!--        <material name="geom" texture="texgeom" texuniform="true"/>-->
+        <material name="dark" specular="0" shininess="0.25" rgba="0.2 0.2 0.2 1"/>
+        <mesh name="base_link" file="base_link.STL" />
+        <mesh name="body" file="body.STL" />
+        <mesh name="neck" file="neck.STL" />
+        <mesh name="head" file="head.STL" />
+        <mesh name="left_1" file="left_1.STL" />
+        <mesh name="left_2" file="left_2.STL" />
+        <mesh name="left_3" file="left_3.STL" />
+        <mesh name="left_4" file="left_4.STL" />
+        <mesh name="left_5" file="left_5.STL" />
+        <mesh name="left_6" file="left_6.STL" />
+        <mesh name="right_1" file="right_1.STL" />
+        <mesh name="right_2" file="right_2.STL" />
+        <mesh name="right_3" file="right_3.STL" />
+        <mesh name="right_4" file="right_4.STL" />
+        <mesh name="right_5" file="right_5.STL" />
+        <mesh name="right_6" file="right_6.STL" />
+    </asset>
+    <worldbody>
+        <geom name="floor" pos="0 0 0" size="10 10 0.125" type="plane" material="MatPlane" condim="3" group="2" rgba="0.8 0.9 0.8 1" />
+        <light cutoff="100" diffuse="1 1 1" dir="-0 0 -1.3" directional="true" exponent="1" pos="0 0 1.3" specular=".1 .1 .1" castshadow="false"/>
+        <camera name="frontview" pos="1.8 0 0.65" quat="0.560842 0.430646 0.430646 0.560842"/>
+        <camera name="birdview" pos="-0.2 0 3" quat="0.707107 0 0 0.707107"/>
+<!--        <light cutoff="100" diffuse="1 1 1" dir="-0 0 -1.3" directional="true" exponent="1" pos="0 0 1.3" specular=".1 .1 .1"/>-->
+<!--        <geom conaffinity="1" condim="3" material="MatPlane" name="floor" pos="0 0 0" rgba="0.8 0.9 0.8 1" size="40 40 40" type="plane"/>-->
+<!--        <geom type="mesh" contype="0" conaffinity="0" group="1" rgba="0.792157 0.819608 0.933333 1" mesh="base_link" />-->
+<!--        <geom type="mesh" rgba="0.792157 0.819608 0.933333 1" mesh="base_link" />-->
+        <body name="body" childclass="robot_sim" quat="0.707 0 0 0.707">
+            <inertial pos="0 0 0" quat="0.5 0.5 -0.5 0.5" mass="4" diaginertia="0.0072 0.00443333 0.00443333" />
+            <geom quat="0 0 0 1" type="mesh" contype="0" conaffinity="0" group="1" rgba="0.792157 0.819608 0.933333 1" mesh="body" />
+            <geom quat="0 0 0 1" type="mesh" rgba="0.792157 0.819608 0.933333 1" mesh="body" />
+
+            <body name="left_1" pos="0.13751 -0.00843684 0.43" quat="0.0621374 0 0 0.998068">
+                <inertial pos="-0.0389123 4.16029e-10 4.9092e-10" quat="0.707107 0 0 0.707107" mass="0.450915" diaginertia="0.00114268 0.000950117 0.000939472" />
+                <joint class="shoulder_1" name="left_j1"/>
+                <geom class="visual" mesh="left_1"/>
+<!--                <geom class="left_1"/>-->
+<!--                <geom type="mesh" rgba="0.792157 0.819608 0.933333 1" mesh="left_1" />-->
+                <body name="left_2" pos="-0.075 0 0">
+                    <inertial pos="-0.0621308 1.14102e-07 0.000424355" quat="4.81445e-06 0.706526 4.80654e-06 0.707687" mass="1.56019" diaginertia="0.00710311 0.00597557 0.00259921" />
+                    <joint class="shoulder_2" name="left_j2" />
+                    <geom type="mesh" contype="0" conaffinity="0" group="1" rgba="0.792157 0.819608 0.933333 1" mesh="left_2" />
+                    <geom type="mesh" rgba="0.792157 0.819608 0.933333 1" mesh="left_2" />
+                    <body name="left_3" pos="-0.159203 0 0.015946">
+                        <inertial pos="-0.0604617 -2.93139e-09 -0.0166755" quat="0.502955 0.497027 0.497027 0.502955" mass="0.520336" diaginertia="0.00128574 0.00107323 0.000678269" />
+                        <joint class="shoulder_3" name="left_j3" />
+                        <geom type="mesh" contype="0" conaffinity="0" group="1" rgba="0.792157 0.819608 0.933333 1" mesh="left_3" />
+                        <geom type="mesh" rgba="0.792157 0.819608 0.933333 1" mesh="left_3" />
+                        <body name="left_4" pos="-0.121797 0 0.021054" quat="0.997063 0 0 -0.0765836">
+                            <inertial pos="-0.0236502 2.46946e-09 -0.037" quat="0.5 0.5 0.5 0.5" mass="0.187003" diaginertia="0.000176801 0.00013087 0.000111406" />
+                            <joint class="elbow" name="left_j4"/>
+                            <geom type="mesh" contype="0" conaffinity="0" group="1" rgba="0.792157 0.819608 0.933333 1" mesh="left_4" />
+                            <geom type="mesh" rgba="0.792157 0.819608 0.933333 1" mesh="left_4" />
+                            <body name="left_5" pos="-0.058 0 -0.037">
+                                <inertial pos="-0.118694 -6.55837e-09 1.339e-07" quat="0.500007 0.499993 0.500008 0.499992" mass="1.41911" diaginertia="0.00746375 0.00731006 0.00143549" />
+                                <joint class="wrist_1" name="left_j5" />
+                                <geom type="mesh" contype="0" conaffinity="0" group="1" rgba="0.792157 0.819608 0.933333 1" mesh="left_5" />
+                                <geom type="mesh" rgba="0.792157 0.819608 0.933333 1" mesh="left_5" />
+                                <body name="left_6" pos="-0.250811 0 0.025" quat="0.990378 0 0 0.138391">
+                                    <inertial pos="-0.00121902 0.000335588 -0.0250062" quat="0.0946889 0.700755 -0.0946952 0.70072" mass="0.130726" diaginertia="6.86601e-05 5.37786e-05 4.85598e-05" />
+                                    <joint class="wrist_2" name="left_j6"/>
+                                    <geom type="mesh" contype="0" conaffinity="0" group="1" rgba="0.792157 0.819608 0.933333 1" mesh="left_6" />
+                                    <geom type="mesh" rgba="0.792157 0.819608 0.933333 1" mesh="left_6" />
+                                    <site name="tip_z" type="cylinder" size="0.005 0.04" rgba="0 0 1 1" pos="0 0 0.04"  quat="1 0 0 0"/>
+                                    <site name="tip_y" type="cylinder" size="0.005 0.04" rgba="0 1 0 1" pos="0 0.04 0" quat="0.707 0.707 0 0"/>
+                                    <site name="tip_x" type="cylinder" size="0.005 0.04" rgba="1 0 0 1" pos="0.04 0 0" quat="0.707 0 0.707 0"/>
+                                    <site name="tip" type="sphere" pos="0 0 0" size="0.01 0.01 0.01" rgba="1 0 0 0.5"/>
+                                </body>
+                            </body>
+                        </body>
+                    </body>
+                </body>
+            </body>
+            <body name="right_1" pos="-0.13751 -0.00843684 0.43" quat="-0.0439378 -0.0439378 0.70574 0.70574">
+                <inertial pos="0.0389123 1.25623e-10 -4.79302e-11" quat="0.707107 0 0 0.707107" mass="0.450915" diaginertia="0.00114268 0.000950117 0.000939472" />
+                <joint class="shoulder_1" name="right_j1"/>
+                <geom class="visual" mesh="right_1" />
+<!--                <geom type="mesh" rgba="0.792157 0.819608 0.933333 1" mesh="right_1" />-->
+                <body name="right_2" pos="0.075 0 0" quat="1 0 -0.000264163 0">
+                    <inertial pos="0.0621308 -1.09003e-07 0.000424375" quat="-4.73707e-06 0.707687 -4.74486e-06 0.706526" mass="1.56019" diaginertia="0.00710311 0.00597557 0.00259921" />
+                    <joint class="shoulder_2" name="right_j2"/>
+                    <geom type="mesh" contype="0" conaffinity="0" group="1" rgba="0.792157 0.819608 0.933333 1" mesh="right_2" />
+                    <geom type="mesh" rgba="0.792157 0.819608 0.933333 1" mesh="right_2" />
+                    <body name="right_3" pos="0.16 0 0" quat="0.707107 -0.707107 0 0">
+                        <inertial pos="0.0596651 -6.68584e-09 -0.000729485" quat="0.497027 0.502955 0.502955 0.497027" mass="0.520336" diaginertia="0.00128574 0.00107323 0.000678269" />
+                        <joint class="shoulder_3" name="right_j3"/>
+                        <geom type="mesh" contype="0" conaffinity="0" group="1" rgba="0.792157 0.819608 0.933333 1" mesh="right_3" />
+                        <geom type="mesh" rgba="0.792157 0.819608 0.933333 1" mesh="right_3" />
+                        <body name="right_4" pos="0.121 0 0.037" quat="0.0618738 0 0 0.998084">
+                            <inertial pos="-0.0234895 -0.00275316 -0.037" quat="0.469997 0.469997 0.528302 0.528302" mass="0.187003" diaginertia="0.000176801 0.00013087 0.000111406" />
+                            <joint class="elbow" name="right_j4"/>
+                            <geom type="mesh" contype="0" conaffinity="0" group="1" rgba="0.792157 0.819608 0.933333 1" mesh="right_4" />
+                            <geom type="mesh" rgba="0.792157 0.819608 0.933333 1" mesh="right_4" />
+                            <body name="right_5" pos="-0.0576057 -0.00675187 -0.037" quat="0.058305 0 0 -0.998299">
+                                <inertial pos="0.118694 -1.51578e-08 -1.36361e-07" quat="0.499993 0.500007 0.499993 0.500007" mass="1.41911" diaginertia="0.00746375 0.00731006 0.00143549" />
+                                <joint class="wrist_1" name="right_j5" />
+                                <geom type="mesh" contype="0" conaffinity="0" group="1" rgba="0.792157 0.819608 0.933333 1" mesh="right_5" />
+                                <geom type="mesh" rgba="0.792157 0.819608 0.933333 1" mesh="right_5" />
+                                <body name="right_6" pos="0.250811 0 0.025" quat="0.999694 0 0 -0.0247512">
+                                    <inertial pos="0.00126437 -1.84763e-09 -0.0249938" quat="1.88226e-06 0.707125 -3.27695e-07 0.707089" mass="0.130726" diaginertia="6.86601e-05 5.37786e-05 4.85598e-05" />
+                                    <joint class="wrist_2" name="right_j6"/>
+                                    <geom type="mesh" contype="0" conaffinity="0" group="1" rgba="0.792157 0.819608 0.933333 1" mesh="right_6" />
+                                    <geom type="mesh" rgba="0.792157 0.819608 0.933333 1" mesh="right_6" />
+                                </body>
+                            </body>
+                        </body>
+                    </body>
+                </body>
+            </body>
+
+            <body name="neck" pos="0 0.0161746 0.515" quat="0 0 0 1">
+                <inertial pos="2.88789e-08 -8.65281e-09 0.0265816" quat="0.49928 0.499347 0.500725 0.500646" mass="0.0321665" diaginertia="7.22266e-06 5.20118e-06 5.14644e-06" />
+                <joint class="neck" name="body_neck"/>
+                <geom type="mesh" contype="0" conaffinity="0" group="1" rgba="0.792157 0.819608 0.933333 1" mesh="neck" />
+<!--                <geom type="mesh" rgba="0.792157 0.819608 0.933333 1" mesh="neck" />-->
+                <body name="head" pos="0.0219999 6.0166e-05 0.03" quat="0.999635 0.0269785 3.68907e-05 0.00136691">
+                    <inertial pos="-0.022 0.0152892 0.0648053" quat="0.705981 0.0399037 -0.0399025 0.705979" mass="1.19735" diaginertia="0.00240376 0.00237423 0.00183049" />
+                    <joint class="head" name="neck_head"/>
+                    <geom type="mesh" contype="0" conaffinity="0" group="1" rgba="0.792157 0.819608 0.933333 1" mesh="head" />
+                    <geom type="mesh" rgba="0.792157 0.819608 0.933333 1" mesh="head" />
+                </body>
+            </body>
+        </body>
+
+
+<!--        <body name="ball_1" pos=".0 -.2 1.3">-->
+<!--            <joint armature="0" axis="1 0 0" damping="0" limited="true" name="ball_1_x" pos="0 0 0" range="-5. 5." stiffness="0" type="slide"/>-->
+<!--            <joint armature="0" axis="0 1 0" damping="0" limited="true" name="ball_1_y" pos="0 0 0" range="-5. 5." stiffness="0" type="slide"/>-->
+<!--            <joint armature="0" axis="0 0 1" damping="0" limited="true" name="ball_1_z" pos="0 0 0" range="-2. 2." stiffness="0" type="slide"/>-->
+<!--            <joint armature="0" damping="0.001" name="ball_1_rot" pos="0 0 0" stiffness="0" type="ball"/>-->
+<!--            <geom name="ball_1" pos="0 0 0" rgba="0.9 0.2 0.2 1" size=".15" type="sphere"/>-->
+<!--        </body>-->
+<!--        <body name="ball_2" pos="0.5 -.6 1.4">-->
+<!--            <joint armature="0" axis="1 0 0" damping="0" limited="true" name="ball_2_x" pos="0 0 0" range="-5. 5." stiffness="0" type="slide"/>-->
+<!--            <joint armature="0" axis="0 1 0" damping="0" limited="true" name="ball_2_y" pos="0 0 0" range="-5. 5." stiffness="0" type="slide"/>-->
+<!--            <joint armature="0" axis="0 0 1" damping="0" limited="true" name="ball_2_z" pos="0 0 0" range="-2. 2." stiffness="0" type="slide"/>-->
+<!--            <joint armature="0" damping="0.001" name="ball_2_rot" pos="0 0 0" stiffness="0" type="ball"/>-->
+<!--            <geom name="ball_2" pos="0 0 0" rgba="0.2 0.8 0.5 1" size=".25" type="sphere"/>-->
+<!--        </body>-->
+<!--        <body name="ball_3" pos="0.3 -.6 1.5">-->
+<!--            <joint armature="0" axis="1 0 0" damping="0" limited="true" name="ball_3_x" pos="0 0 0" range="-5. 5." stiffness="0" type="slide"/>-->
+<!--            <joint armature="0" axis="0 1 0" damping="0" limited="true" name="ball_3_y" pos="0 0 0" range="-5. 5." stiffness="0" type="slide"/>-->
+<!--            <joint armature="0" axis="0 0 1" damping="0" limited="true" name="ball_3_z" pos="0 0 0" range="-2. 2." stiffness="0" type="slide"/>-->
+<!--            <joint armature="0" damping="0.001" name="ball_3_rot" pos="0 0 0" stiffness="0" type="ball"/>-->
+<!--            <geom name="ball_3" pos="0 0 0" rgba="0.2 0.2 0.5 1" size=".2" type="sphere"/>-->
+<!--        </body>-->
+    </worldbody>
+
+    <actuator>
+        <general class="shoulder_1" name="left_j1_T" joint="left_j1" ctrllimited="true" />
+        <position class="shoulder_2" name="left_j2_T" joint="left_j2" ctrllimited="true" />
+        <position class="shoulder_3" name="left_j3_T" joint="left_j3" ctrllimited="true" />
+        <position class="elbow" name="left_j4_T" joint="left_j4" ctrllimited="true" />
+        <position class="wrist_1" name="left_j5_T" joint="left_j5" ctrllimited="true" />
+        <position class="wrist_2" name="left_j6_T" joint="left_j6" ctrllimited="true" />
+        <position class="shoulder_1" name="right_j1_T" joint="right_j1" ctrllimited="true" />
+        <position class="shoulder_2" name="right_j2_T" joint="right_j2" ctrllimited="true" />
+        <position class="shoulder_3" name="right_j3_T" joint="right_j3" ctrllimited="true" />
+        <position class="elbow" name="right_j4_T" joint="right_j4" ctrllimited="true" />
+        <position class="wrist_1" name="right_j5_T" joint="right_j5" ctrllimited="true" />
+        <position class="wrist_2" name="right_j6_T" joint="right_j6" ctrllimited="true" />
+<!--        <position class="neck" name="body_neck" joint="body_neck" ctrllimited="true" />-->
+<!--        <position class="head" name="neck_head" joint="neck_head" ctrllimited="true" />-->
+    </actuator>
+</mujoco>

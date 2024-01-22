@@ -1,0 +1,378 @@
+<mujoco model="base">
+    <compiler angle="radian" meshdir="meshes/" inertiagrouprange="0 0" autolimits="true"/>
+    <option impratio="20" cone="elliptic" density="1.2" viscosity="0.00002" timestep="0.002"/>
+    <size nconmax="5000" njmax="5000"/>
+
+    <asset>
+        <texture builtin="gradient" height="256" rgb1=".9 .9 1." rgb2=".2 .3 .4" type="skybox" width="256"/>
+        <texture file="/home/kavin/Documents/PycharmProjects/Robosuite/robosuite/models/assets/arenas/../textures/light-gray-floor-tile.png" type="2d" name="texplane"/>
+        <material name="floorplane" reflectance="0.01" shininess="0.0" specular="0.0" texrepeat="2 2" texture="texplane" texuniform="true"/>
+
+        <texture file="/home/kavin/Documents/PycharmProjects/Robosuite/robosuite/models/assets/arenas/../textures/ceramic.png" type="cube" name="tex-ceramic"/>
+        <material name="table_ceramic" reflectance="0.0" shininess="0.0" specular="0.2" texrepeat="1 1" texture="tex-ceramic"/>
+
+        <texture file="/home/kavin/Documents/PycharmProjects/Robosuite/robosuite/models/assets/arenas/../textures/steel-brushed.png" type="cube" name="tex-steel-brushed"/>
+        <material name="table_legs_metal" reflectance="0.8" shininess="0.8" texrepeat="1 1" texture="tex-steel-brushed"/>
+
+        <texture file="/home/kavin/Documents/PycharmProjects/Robosuite/robosuite/models/assets/arenas/../textures/light-gray-plaster.png" type="2d" name="tex-light-gray-plaster"/>
+        <material name="walls_mat" reflectance="0.0" shininess="0.1" specular="0.1" texrepeat="3 3" texture="tex-light-gray-plaster" texuniform="true"/>
+
+        <texture name="textable" builtin="flat" height="512" width="512" rgb1="0.5 0.5 0.5" rgb2="0.5 0.5 0.5"/>
+        <material name="table_mat" texture="textable"/>
+
+        <mesh name="robot0_body" file="/home/kavin/Documents/PycharmProjects/Robosuite/robosuite/models/assets/robots/humanoid/meshes/body.STL"/>
+        <mesh name="robot0_neck" file="/home/kavin/Documents/PycharmProjects/Robosuite/robosuite/models/assets/robots/humanoid/meshes/neck.STL"/>
+        <mesh name="robot0_head" file="/home/kavin/Documents/PycharmProjects/Robosuite/robosuite/models/assets/robots/humanoid/meshes/head.STL"/>
+        <mesh name="robot0_left_1" file="/home/kavin/Documents/PycharmProjects/Robosuite/robosuite/models/assets/robots/humanoid/meshes/left_1.STL"/>
+        <mesh name="robot0_left_2" file="/home/kavin/Documents/PycharmProjects/Robosuite/robosuite/models/assets/robots/humanoid/meshes/left_2.STL"/>
+        <mesh name="robot0_left_3" file="/home/kavin/Documents/PycharmProjects/Robosuite/robosuite/models/assets/robots/humanoid/meshes/left_3.STL"/>
+        <mesh name="robot0_left_4" file="/home/kavin/Documents/PycharmProjects/Robosuite/robosuite/models/assets/robots/humanoid/meshes/left_4.STL"/>
+        <mesh name="robot0_left_5" file="/home/kavin/Documents/PycharmProjects/Robosuite/robosuite/models/assets/robots/humanoid/meshes/left_5.STL"/>
+        <mesh name="robot0_left_6" file="/home/kavin/Documents/PycharmProjects/Robosuite/robosuite/models/assets/robots/humanoid/meshes/left_6.STL"/>
+
+
+        <mesh name="mount0_pedestal" file="/home/kavin/Documents/PycharmProjects/Robosuite/robosuite/models/assets/mounts/meshes/rethink_mount/pedestal.stl"/>
+        <mesh name="gripper0_palm_left" file="/home/kavin/Documents/RosProjects/robot_ws/src/hand_left_sim/meshes/palm_left.STL"/>
+        <mesh name="gripper0_finger_11_left" file="/home/kavin/Documents/RosProjects/robot_ws/src/hand_left_sim/meshes/finger_11_left.STL"/>
+        <mesh name="gripper0_finger_12_left" file="/home/kavin/Documents/RosProjects/robot_ws/src/hand_left_sim/meshes/finger_12_left.STL"/>
+        <mesh name="gripper0_finger_13_left" file="/home/kavin/Documents/RosProjects/robot_ws/src/hand_left_sim/meshes/finger_13_left.STL"/>
+        <mesh name="gripper0_finger_14_left" file="/home/kavin/Documents/RosProjects/robot_ws/src/hand_left_sim/meshes/finger_14_left.STL"/>
+        <mesh name="gripper0_finger_21_left" file="/home/kavin/Documents/RosProjects/robot_ws/src/hand_left_sim/meshes/finger_21_left.STL"/>
+        <mesh name="gripper0_finger_22_left" file="/home/kavin/Documents/RosProjects/robot_ws/src/hand_left_sim/meshes/finger_22_left.STL"/>
+        <mesh name="gripper0_finger_23_left" file="/home/kavin/Documents/RosProjects/robot_ws/src/hand_left_sim/meshes/finger_23_left.STL"/>
+        <mesh name="gripper0_finger_31_left" file="/home/kavin/Documents/RosProjects/robot_ws/src/hand_left_sim/meshes/finger_31_left.STL"/>
+        <mesh name="gripper0_finger_32_left" file="/home/kavin/Documents/RosProjects/robot_ws/src/hand_left_sim/meshes/finger_32_left.STL"/>
+        <mesh name="gripper0_finger_33_left" file="/home/kavin/Documents/RosProjects/robot_ws/src/hand_left_sim/meshes/finger_33_left.STL"/>
+        <mesh name="gripper0_finger_41_left" file="/home/kavin/Documents/RosProjects/robot_ws/src/hand_left_sim/meshes/finger_41_left.STL"/>
+        <mesh name="gripper0_finger_42_left" file="/home/kavin/Documents/RosProjects/robot_ws/src/hand_left_sim/meshes/finger_42_left.STL"/>
+        <mesh name="gripper0_finger_43_left" file="/home/kavin/Documents/RosProjects/robot_ws/src/hand_left_sim/meshes/finger_43_left.STL"/>
+        <mesh name="gripper0_finger_51_left" file="/home/kavin/Documents/RosProjects/robot_ws/src/hand_left_sim/meshes/finger_51_left.STL"/>
+        <mesh name="gripper0_finger_52_left" file="/home/kavin/Documents/RosProjects/robot_ws/src/hand_left_sim/meshes/finger_52_left.STL"/>
+        <mesh name="gripper0_finger_53_left" file="/home/kavin/Documents/RosProjects/robot_ws/src/hand_left_sim/meshes/finger_53_left.STL"/>
+        <texture type="cube" name="cube_redwood" file="/home/kavin/Documents/PycharmProjects/Robosuite/robosuite/models/assets/textures/red-wood.png"/>
+        <material texrepeat="1 1" specular="0.4" shininess="0.1" name="cube_redwood_mat" texture="cube_redwood"/>
+    </asset>
+
+    <visual>
+        <map znear="0.001"/>
+    </visual>
+
+    <actuator>
+        <motor ctrllimited="true" ctrlrange="-50.0 50.0" name="robot0_left_j1_T" joint="robot0_left_j1"/>
+        <motor ctrllimited="true" ctrlrange="-50.0 50.0" name="robot0_left_j2_T" joint="robot0_left_j2"/>
+        <motor ctrllimited="true" ctrlrange="-50.0 50.0" name="robot0_left_j3_T" joint="robot0_left_j3"/>
+        <motor ctrllimited="true" ctrlrange="-50.0 50.0" name="robot0_left_j4_T" joint="robot0_left_j4"/>
+        <motor ctrllimited="true" ctrlrange="-50.0 50.0" name="robot0_left_j5_T" joint="robot0_left_j5"/>
+        <motor ctrllimited="true" ctrlrange="-50.0 50.0" name="robot0_left_j6_T" joint="robot0_left_j6"/>
+
+        <position name="gripper0_j11_left_T" joint="gripper0_j_11_left" ctrllimited="true" ctrlrange="0 1.57" kp="8"/>
+        <position name="gripper0_j12_left_T" joint="gripper0_j_12_left" ctrllimited="true" ctrlrange="0 1.57" kp="8"/>
+        <position name="gripper0_j13_left_T" joint="gripper0_j_13_left" ctrllimited="true" ctrlrange="0 0.3" kp="8"/>
+        <position name="gripper0_j14_left_T" joint="gripper0_j_14_left" ctrllimited="true" ctrlrange="0 0.8" kp="8"/>
+        <position name="gripper0_j21_left_T" joint="gripper0_j_21_left" ctrllimited="true" ctrlrange="0 1.57" kp="8"/>
+        <position name="gripper0_j20_left_T" tendon="gripper0_j_20_left" ctrllimited="true" ctrlrange="0 2.14" kp="8"/>
+        <position name="gripper0_j31_left_T" joint="gripper0_j_31_left" ctrllimited="true" ctrlrange="0 1.57" kp="8"/>
+        <position name="gripper0_j30_left_T" tendon="gripper0_j_30_left" ctrllimited="true" ctrlrange="0 2.14" kp="8"/>
+        <position name="gripper0_j41_left_T" joint="gripper0_j_41_left" ctrllimited="true" ctrlrange="0 1.57" kp="8"/>
+        <position name="gripper0_j40_left_T" tendon="gripper0_j_40_left" ctrllimited="true" ctrlrange="0 2.14" kp="8"/>
+        <position name="gripper0_j51_left_T" joint="gripper0_j_51_left" ctrllimited="true" ctrlrange="0 1.57" kp="8"/>
+        <position name="gripper0_j50_left_T" tendon="gripper0_j_50_left" ctrllimited="true" ctrlrange="0 2.14" kp="8"/>
+
+    </actuator>
+
+    <worldbody>
+        <geom condim="3" group="1" material="floorplane" name="floor" pos="0.0 0.0 0.0" size="3 3 .125" type="plane"/>
+
+        <geom pos="-1.25 2.25 1.5" quat="0.6532815 0.6532815 0.2705981 0.2705981" size="1.06 1.5 0.01" type="box" conaffinity="0" contype="0" group="1" name="wall_leftcorner_visual"
+              material="walls_mat"/>
+        <geom pos="-1.25 -2.25 1.5" quat="0.6532815 0.6532815 -0.2705981 -0.2705981" size="1.06 1.5 0.01" type="box" conaffinity="0" contype="0" group="1" name="wall_rightcorner_visual"
+              material="walls_mat"/>
+        <geom pos="1.25 3.0 1.5" quat="0.7071 0.7071 0 0" size="1.75 1.5 0.01" type="box" conaffinity="0" contype="0" group="1" name="wall_left_visual" material="walls_mat"/>
+        <geom pos="1.25 -3.0 1.5" quat="0.7071 -0.7071 0 0" size="1.75 1.5 0.01" type="box" conaffinity="0" contype="0" group="1" name="wall_right_visual" material="walls_mat"/>
+        <geom pos="-2.0 0.0 1.5" quat="0.5 0.5 0.5 0.5" size="1.5 1.5 0.01" type="box" conaffinity="0" contype="0" group="1" name="wall_rear_visual" material="walls_mat"/>
+        <geom pos="3.0 0.0 1.5" quat="0.5 0.5 -0.5 -0.5" size="3 1.5 0.01" type="box" conaffinity="0" contype="0" group="1" name="wall_front_visual" material="walls_mat"/>
+
+        <body name="table" pos="0.0 0.0 0.775">
+            <geom pos="0 0 0" size="0.4 0.4 0.025" type="box" group="0" name="table_collision" friction="1.0 0.005 0.0001" rgba="0.5 0.5 0 1"/>
+            <geom pos="0 0 0" size="0.4 0.4 0.025" type="box" conaffinity="0" contype="0" group="1" name="table_visual" material="table_ceramic"/>
+            <site pos="0.0 0.0 0.025" name="table_top" size="0.001 0.001 0.001" rgba="0 0 0 0"/>
+
+            <geom pos="0.30000000000000004 0.30000000000000004 -0.3875" size="0.025 0.3875" type="cylinder" conaffinity="0" contype="0" group="1" name="table_leg1_visual" material="table_legs_metal"/>
+            <geom pos="-0.30000000000000004 0.30000000000000004 -0.3875" size="0.025 0.3875" type="cylinder" conaffinity="0" contype="0" group="1" name="table_leg2_visual"
+                  material="table_legs_metal"/>
+            <geom pos="-0.30000000000000004 -0.30000000000000004 -0.3875" size="0.025 0.3875" type="cylinder" conaffinity="0" contype="0" group="1" name="table_leg3_visual"
+                  material="table_legs_metal"/>
+            <geom pos="0.30000000000000004 -0.30000000000000004 -0.3875" size="0.025 0.3875" type="cylinder" conaffinity="0" contype="0" group="1" name="table_leg4_visual"
+                  material="table_legs_metal"/>
+        </body>
+        <light pos="1.0 1.0 1.5" dir="-0.2 -0.2 -1" specular="0.3 0.3 0.3" directional="true" castshadow="false"/>
+
+        <camera mode="fixed" name="frontview" pos="1.6 0.0 1.45" quat="0.56 0.43 0.43 0.56"/>
+
+        <camera mode="fixed" name="birdview" pos="-0.2 0.0 3.0" quat="0.7071 0 0 0.7071"/>
+
+        <camera mode="fixed" name="agentview" pos="0.5 0.0 1.35" quat="0.653 0.271 0.271 0.653"/>
+
+        <camera mode="fixed" name="sideview" pos="-0.05651774593317116 1.2761224129427358 1.4879572214102434" quat="0.009905065491771751 0.006877963156909582 0.5912228352893879 0.806418094001364"/>
+
+        <body name="robot0_body" pos="-0.56 0.0 0.912">
+
+
+            <inertial pos="0 0 0" quat="0.5 0.5 -0.5 0.5" mass="4" diaginertia="0.0072 0.00443333 0.00443333"/>
+            <geom type="mesh" contype="0" conaffinity="0" group="1" rgba="0.792157 0.819608 0.933333 1" mesh="robot0_body" name="robot0_body_visual"/>
+            <geom type="mesh" rgba="0 0.5 0 1" mesh="robot0_body" name="robot0_body_collision"/>
+            <body name="robot0_left_1" pos="0.0084368 0.13751 0.43" quat="0.422014 0.509768 -0.577484 -0.478073">
+                <inertial pos="-0.0389123 -8.15098e-11 4.37584e-11" quat="0.707107 0 0 0.707107" mass="0.450915" diaginertia="0.00114268 0.000950117 0.000939472"/>
+                <joint name="robot0_left_j1" axis="1 0 0" limited="true" range="-3.14 3.14" damping="0.001" frictionloss="0.01" armature="5.0"/>
+                <geom type="mesh" contype="0" conaffinity="0" group="1" rgba="0.792157 0.819608 0.933333 1" mesh="robot0_left_1" name="robot0_left_1_visual"/>
+                <geom type="mesh" rgba="0 0.5 0 1" mesh="robot0_left_1" name="robot0_g0_col"/>
+                <body name="robot0_left_2" pos="-0.075 0 0" quat="0.934134 0 -0.356921 0">
+                    <inertial pos="-0.0621308 1.25597e-07 0.00042437" quat="3.21075e-06 0.706526 3.20548e-06 0.707688" mass="1.56019" diaginertia="0.00710312 0.00597558 0.00259922"/>
+                    <joint name="robot0_left_j2" axis="0 1 0" limited="true" range="-3.14 3.14" damping="1" frictionloss="0.01" armature="2.5"/>
+                    <geom type="mesh" contype="0" conaffinity="0" group="1" rgba="0.792157 0.819608 0.933333 1" mesh="robot0_left_2" name="robot0_left_2_visual"/>
+                    <geom type="mesh" rgba="0 0.5 0 1" mesh="robot0_left_2" name="robot0_left_2_collision"/>
+                    <body name="robot0_left_3" pos="-0.16 0 0" quat="0.792164 0.610309 0 0">
+                        <inertial pos="-0.059665 2.14069e-07 -0.000729859" quat="0.502955 0.497027 0.497027 0.502955" mass="0.52034" diaginertia="0.00128574 0.00107323 0.000678269"/>
+                        <joint name="robot0_left_j3" axis="1 0 0" limited="true" range="-3.14 3.14" damping="1" frictionloss="0.01" armature="1.6666666666666667"/>
+                        <geom type="mesh" contype="0" conaffinity="0" group="1" rgba="0.792157 0.819608 0.933333 1" mesh="robot0_left_3" name="robot0_left_3_visual"/>
+                        <geom type="mesh" rgba="0 0.5 0 1" mesh="robot0_left_3" name="robot0_left_3_collision"/>
+                        <body name="robot0_left_4" pos="-0.121 0 0.037" quat="0.854816 0 0 0.518931">
+                            <inertial pos="-0.0236502 -1.38379e-09 -0.037" quat="0.5 0.5 0.5 0.5" mass="0.187003" diaginertia="0.000176801 0.00013087 0.000111406"/>
+                            <joint name="robot0_left_j4" axis="0 0 -1" limited="true" range="-3.14 3.14" damping="1" frictionloss="0.01" armature="1.25"/>
+                            <geom type="mesh" contype="0" conaffinity="0" group="1" rgba="0.792157 0.819608 0.933333 1" mesh="robot0_left_4" name="robot0_left_4_visual"/>
+                            <geom type="mesh" rgba="0 0.5 0 1" mesh="robot0_left_4" name="robot0_left_4_collision"/>
+                            <body name="robot0_left_5" pos="-0.058 0 -0.037" quat="0.184654 -0.982804 0 0">
+                                <inertial pos="-0.118694 -2.89295e-08 1.30138e-07" quat="0.499999 0.500001 0.500001 0.499999" mass="1.41911" diaginertia="0.00746362 0.00730999 0.00143555"/>
+                                <joint name="robot0_left_j5" axis="1 0 0" limited="true" range="-3.14 3.14" damping="1" frictionloss="0.01" armature="1.0"/>
+                                <geom type="mesh" contype="0" conaffinity="0" group="1" rgba="0.792157 0.819608 0.933333 1" mesh="robot0_left_5" name="robot0_left_5_visual"/>
+                                <geom type="mesh" rgba="0 0.5 0 1" mesh="robot0_left_5" name="robot0_left_5_collision"/>
+                                <body name="robot0_left_6" pos="-0.250811 0 0.025" quat="0.108969 0 0 0.994045">
+                                    <inertial pos="0.00125752 -0.0001315 -0.0250062" quat="0.036822 0.70613 -0.0368186 0.706165" mass="0.130726" diaginertia="6.86601e-05 5.37786e-05 4.85598e-05"/>
+                                    <joint name="robot0_left_j6" axis="0 0 -1" limited="true" range="-3.14 3.14" damping="1" frictionloss="0.01" armature="0.8333333333333334"/>
+                                    <geom type="mesh" contype="0" conaffinity="0" group="1" rgba="0.792157 0.819608 0.933333 1" mesh="robot0_left_6" name="robot0_left_6_visual"/>
+                                    <geom type="mesh" rgba="0 0.5 0 1" mesh="robot0_left_6" name="robot0_left_6_collision"/>
+                                    <body name="robot0_left_hand" pos="0.0397831 -0.00416024 -0.025" quat="0.707107 0 0.707107 0">
+                                        <camera mode="fixed" name="robot0_eye_in_hand" pos="0.05 0 0" quat="0 0.707108 0.707108 0" fovy="75"/>
+
+
+                                        <body name="gripper0_palm_left" quat="0 0 0 1">
+
+
+                                            <site name="gripper0_ft_frame" pos="0 0 0" size="0.01 0.01 0.01" rgba="1 0 0 1" type="sphere" group="1"/>
+                                            <body name="gripper0_eef" pos="0 0.03 0.08">
+                                                <site name="gripper0_grip_site" pos="0 0 0" size="0.01 0.01 0.01" rgba="1 0 0 0.5" type="sphere" group="1"/>
+                                                <site name="gripper0_ee_x" pos="0.1 0 0" size="0.005 .1" quat="0.707105  0 0.707108 0 " rgba="1 0 0 0" type="cylinder" group="1"/>
+                                                <site name="gripper0_ee_y" pos="0 0.1 0" size="0.005 .1" quat="0.707105 0.707108 0 0" rgba="0 1 0 0" type="cylinder" group="1"/>
+                                                <site name="gripper0_ee_z" pos="0 0 0.1" size="0.005 .1" quat="1 0 0 0" rgba="0 0 1 0" type="cylinder" group="1"/>
+                                                <site name="gripper0_grip_site_cylinder" pos="0 0 0" size="0.005 1" quat="0.707105  0 0.707108 0 " rgba="0 1 0 0" type="cylinder" group="1"/>
+                                            </body>
+                                            <inertial pos="0 0 0" mass="0.01" diaginertia="0.001 0.001 0.001"/>
+                                            <geom type="mesh" contype="0" conaffinity="0" group="1" rgba="0.792157 0.819608 0.933333 1" mesh="gripper0_palm_left" name="gripper0_palm_left_visual"/>
+                                            <geom type="mesh" rgba="0 0 0.5 1" mesh="gripper0_palm_left" name="gripper0_palm_left_collision"/>
+                                            <body name="gripper0_finger_11_left" pos="0.033156 0 0.046854" quat="-3.23396e-06 -0.474195 1.74182e-06 -0.88042">
+                                                <inertial pos="0 0 0.00296384" quat="0.707107 0 0 0.707107" mass="0.00158261" diaginertia="6.47978e-08 5.66929e-08 5.56708e-08"/>
+                                                <joint name="gripper0_j_11_left" pos="0 0 0" axis="1 0 0" limited="true" range="-1.57 1.57" damping="0.01" armature="0.0002" frictionloss="0.01"/>
+                                                <geom type="mesh" contype="0" conaffinity="0" group="1" rgba="0.792157 0.819608 0.933333 1" mesh="gripper0_finger_11_left"
+                                                      name="gripper0_finger_11_left_visual"/>
+                                                <geom type="mesh" rgba="0 0 0.5 1" mesh="gripper0_finger_11_left" name="gripper0_finger_11_left_collision"/>
+                                                <body name="gripper0_finger_12_left" pos="0 0 0.005">
+                                                    <inertial pos="3.89801e-11 -3.25373e-12 0.00925016" quat="0.707107 0 0 0.707107" mass="0.00237615"
+                                                              diaginertia="1.18675e-07 1.15819e-07 1.06634e-07"/>
+                                                    <joint name="gripper0_j_12_left" axis="0 0 1" limited="true" range="-1.57 1.57" damping="0.01" armature="0.0002" frictionloss="0.01"/>
+                                                    <geom type="mesh" contype="0" conaffinity="0" group="1" rgba="0.792157 0.819608 0.933333 1" mesh="gripper0_finger_12_left"
+                                                          name="gripper0_finger_12_left_visual"/>
+                                                    <geom type="mesh" rgba="0 0 0.5 1" mesh="gripper0_finger_12_left" name="gripper0_finger_12_left_collision"/>
+                                                    <body name="gripper0_finger_13_left" pos="0 0.0001162 0.016272" quat="0.998888 0.0471535 0 0">
+                                                        <inertial pos="-3.21624e-08 -2.51355e-07 0.0147548" quat="0.706869 4.57226e-06 -4.57534e-06 0.707344" mass="0.00477507"
+                                                                  diaginertia="5.13037e-07 5.06539e-07 1.11818e-07"/>
+                                                        <joint name="gripper0_j_13_left" axis="1 0 0" limited="true" range="-1.57 1.57" damping="0.01" armature="0.0002" frictionloss="0.01"/>
+                                                        <geom type="mesh" contype="0" conaffinity="0" group="1" rgba="0.792157 0.819608 0.933333 1" mesh="gripper0_finger_13_left"
+                                                              name="gripper0_finger_13_left_visual"/>
+                                                        <geom type="mesh" rgba="0 0 0.5 1" mesh="gripper0_finger_13_left" name="gripper0_finger_13_left_collision"/>
+                                                        <body name="gripper0_finger_14_left" pos="0 0 0.028233" quat="0.998888 -0.0471535 0 0">
+                                                            <inertial pos="1.25827e-05 -0.000148504 0.0147394" quat="0.704718 0.00742825 -0.00610754 0.709423" mass="0.0045956"
+                                                                      diaginertia="3.58606e-07 3.47268e-07 1.55217e-07"/>
+                                                            <joint name="gripper0_j_14_left" axis="1 0 0" limited="true" range="-1.57 1.57" damping="0.01" armature="0.0002" frictionloss="0.01"/>
+                                                            <geom type="mesh" contype="0" conaffinity="0" group="1" rgba="0.792157 0.819608 0.933333 1" mesh="gripper0_finger_14_left"
+                                                                  name="gripper0_finger_14_left_visual"/>
+                                                            <geom type="mesh" rgba="0 0 0.5 1" mesh="gripper0_finger_14_left" name="gripper0_finger_14_left_collision"/>
+                                                        </body>
+                                                    </body>
+                                                </body>
+                                            </body>
+                                            <body name="gripper0_finger_21_left" pos="0.02313 6.8436e-05 0.10261" quat="0.00406373 0.146484 -0.0274558 0.988824">
+                                                <inertial pos="-3.37176e-08 -2.63089e-07 0.0147548" quat="0.706874 4.60798e-06 -4.61102e-06 0.70734" mass="0.00477507"
+                                                          diaginertia="5.13037e-07 5.06539e-07 1.11818e-07"/>
+                                                <joint name="gripper0_j_21_left" pos="0 0 0" axis="1 0 0" limited="true" range="-1.57 1.57" damping="0.01" armature="0.0002" frictionloss="0.01"/>
+                                                <geom type="mesh" contype="0" conaffinity="0" group="1" rgba="0.792157 0.819608 0.933333 1" mesh="gripper0_finger_21_left"
+                                                      name="gripper0_finger_21_left_visual"/>
+                                                <geom type="mesh" rgba="0 0 0.5 1" mesh="gripper0_finger_21_left" name="gripper0_finger_21_left_collision"/>
+                                                <body name="gripper0_finger_22_left" pos="0 0 0.028233" quat="0.999615 0.0277559 0 0">
+                                                    <inertial pos="0 0 0.0105" mass="0.00239726" diaginertia="1.69655e-07 1.65763e-07 9.58619e-08"/>
+                                                    <joint name="gripper0_j_22_left" pos="0 0 0" axis="1 0 0" limited="true" range="-1.57 1.57" damping="0.01" armature="0.0002" frictionloss="0.01"/>
+                                                    <geom type="mesh" contype="0" conaffinity="0" group="1" rgba="0.792157 0.819608 0.933333 1" mesh="gripper0_finger_22_left"
+                                                          name="gripper0_finger_22_left_visual"/>
+                                                    <geom type="mesh" rgba="0 0 0.5 1" mesh="gripper0_finger_22_left" name="gripper0_finger_22_left_collision"/>
+                                                    <body name="gripper0_finger_23_left" pos="0 0 0.021">
+                                                        <inertial pos="1.83784e-05 -3.04017e-05 0.0092181" quat="0.713531 0.00165371 0.000482778 0.700621" mass="0.00351084"
+                                                                  diaginertia="2.40711e-07 2.34319e-07 7.61093e-08"/>
+                                                        <joint name="gripper0_j_23_left" pos="0 0 0" axis="1 0 0" limited="true" range="-1.57 1.57" damping="0.01" armature="0.0002"
+                                                               frictionloss="0.01"/>
+                                                        <geom type="mesh" contype="0" conaffinity="0" group="1" rgba="0.792157 0.819608 0.933333 1" mesh="gripper0_finger_23_left"
+                                                              name="gripper0_finger_23_left_visual"/>
+                                                        <geom type="mesh" rgba="0 0 0.5 1" mesh="gripper0_finger_23_left" name="gripper0_finger_23_left_collision"/>
+                                                    </body>
+                                                </body>
+                                            </body>
+                                            <body name="gripper0_finger_31_left" pos="0.003285 0.00012829 0.10551" quat="-3.66822e-06 1.91269e-07 -0.0520714 0.998643">
+                                                <inertial pos="3.43995e-08 -2.32819e-07 0.0147121" quat="0.707342 -4.57282e-06 4.56978e-06 0.706872" mass="0.00477507"
+                                                          diaginertia="5.13037e-07 5.06539e-07 1.11818e-07"/>
+                                                <joint name="gripper0_j_31_left" pos="0 0 0" axis="1 0 0" limited="true" range="-1.57 1.57" damping="0.01" armature="0.0002" frictionloss="0.01"/>
+                                                <geom type="mesh" contype="0" conaffinity="0" group="1" rgba="0.792157 0.819608 0.933333 1" mesh="gripper0_finger_31_left"
+                                                      name="gripper0_finger_31_left_visual"/>
+                                                <geom type="mesh" rgba="0 0 0.5 1" mesh="gripper0_finger_31_left" name="gripper0_finger_31_left_collision"/>
+                                                <body name="gripper0_finger_32_left" pos="0 0 0.028233" quat="0.998643 0.0520714 0 0">
+                                                    <inertial pos="0 0 0.0125" mass="0.00316954" diaginertia="2.43247e-07 2.35819e-07 1.2078e-07"/>
+                                                    <joint name="gripper0_j_32_left" pos="0 0 0" axis="1 0 0" limited="true" range="-1.57 1.57" damping="0.01" armature="0.0002" frictionloss="0.01"/>
+                                                    <geom type="mesh" contype="0" conaffinity="0" group="1" rgba="0.792157 0.819608 0.933333 1" mesh="gripper0_finger_32_left"
+                                                          name="gripper0_finger_32_left_visual"/>
+                                                    <geom type="mesh" rgba="0 0 0.5 1" mesh="gripper0_finger_32_left" name="gripper0_finger_32_left_collision"/>
+                                                    <body name="gripper0_finger_33_left" pos="0 0 0.025">
+                                                        <inertial pos="1.9602e-05 -3.05214e-05 0.0109935" quat="0.713664 0.00131208 0.000488317 0.700487" mass="0.00407938"
+                                                                  diaginertia="3.4499e-07 3.3759e-07 9.02118e-08"/>
+                                                        <joint name="gripper0_j_33_left" pos="0 0 0" axis="1 0 0" limited="true" range="-1.57 1.57" damping="0.01" armature="0.0002"
+                                                               frictionloss="0.01"/>
+                                                        <geom type="mesh" contype="0" conaffinity="0" group="1" rgba="0.792157 0.819608 0.933333 1" mesh="gripper0_finger_33_left"
+                                                              name="gripper0_finger_33_left_visual"/>
+                                                        <geom type="mesh" rgba="0 0 0.5 1" mesh="gripper0_finger_33_left" name="gripper0_finger_33_left_collision"/>
+                                                    </body>
+                                                </body>
+                                            </body>
+                                            <body name="gripper0_finger_41_left" pos="-0.015838 8.8878e-05 0.10369" quat="-0.00352722 -0.097685 -0.0358749 0.994564">
+                                                <inertial pos="3.21683e-08 -2.33036e-07 0.0147121" quat="0.707344 -4.5752e-06 4.57212e-06 0.706869" mass="0.00477507"
+                                                          diaginertia="5.13037e-07 5.06539e-07 1.11818e-07"/>
+                                                <joint name="gripper0_j_41_left" pos="0 0 0" axis="1 0 0" limited="true" range="-1.57 1.57" damping="0.01" armature="0.0002" frictionloss="0.01"/>
+                                                <geom type="mesh" contype="0" conaffinity="0" group="1" rgba="0.792157 0.819608 0.933333 1" mesh="gripper0_finger_41_left"
+                                                      name="gripper0_finger_41_left_visual"/>
+                                                <geom type="mesh" rgba="0 0 0.5 1" mesh="gripper0_finger_41_left" name="gripper0_finger_41_left_collision"/>
+                                                <body name="gripper0_finger_42_left" pos="0 0 0.028233" quat="0.99935 0.0360472 0 0">
+                                                    <inertial pos="0 0 0.011" mass="0.00259033" diaginertia="1.86013e-07 1.81238e-07 1.02092e-07"/>
+                                                    <joint name="gripper0_j_42_left" pos="0 0 0" axis="1 0 0" limited="true" range="-1.57 1.57" damping="0.01" armature="0.0002" frictionloss="0.01"/>
+                                                    <geom type="mesh" contype="0" conaffinity="0" group="1" rgba="0.792157 0.819608 0.933333 1" mesh="gripper0_finger_42_left"
+                                                          name="gripper0_finger_42_left_visual"/>
+                                                    <geom type="mesh" rgba="0 0 0.5 1" mesh="gripper0_finger_42_left" name="gripper0_finger_42_left_collision"/>
+                                                    <body name="gripper0_finger_43_left" pos="0 0 0.022">
+                                                        <inertial pos="1.84528e-05 -3.04687e-05 0.00921809" quat="0.713452 0.00165546 0.000482432 0.700702" mass="0.00351082"
+                                                                  diaginertia="2.40712e-07 2.34317e-07 7.61094e-08"/>
+                                                        <joint name="gripper0_j_43_left" pos="0 0 0" axis="1 0 0" limited="true" range="-1.57 1.57" damping="0.01" armature="0.0002"
+                                                               frictionloss="0.01"/>
+                                                        <geom type="mesh" contype="0" conaffinity="0" group="1" rgba="0.792157 0.819608 0.933333 1" mesh="gripper0_finger_43_left"
+                                                              name="gripper0_finger_43_left_visual"/>
+                                                        <geom type="mesh" rgba="0 0 0.5 1" mesh="gripper0_finger_43_left" name="gripper0_finger_43_left_collision"/>
+                                                    </body>
+                                                </body>
+                                            </body>
+                                            <body name="gripper0_finger_51_left" pos="-0.032209 0.00022415 0.09976" quat="0.0129037 0.140879 0.0903198 -0.985814">
+                                                <inertial pos="3.21472e-08 -2.32981e-07 0.0147121" quat="0.707345 -4.5761e-06 4.57303e-06 0.706869" mass="0.00477507"
+                                                          diaginertia="5.13037e-07 5.06539e-07 1.11818e-07"/>
+                                                <joint name="gripper0_j_51_left" pos="0 0 0" axis="1 0 0" limited="true" range="-1.57 1.57" damping="0.01" armature="0.0002" frictionloss="0.01"/>
+                                                <geom type="mesh" contype="0" conaffinity="0" group="1" rgba="0.792157 0.819608 0.933333 1" mesh="gripper0_finger_51_left"
+                                                      name="gripper0_finger_51_left_visual"/>
+                                                <geom type="mesh" rgba="0 0 0.5 1" mesh="gripper0_finger_51_left" name="gripper0_finger_51_left_collision"/>
+                                                <body name="gripper0_finger_52_left" pos="0 0 0.028233" quat="0.995829 0.0912379 0 0">
+                                                    <inertial pos="0 0 0.01" mass="0.00220419" diaginertia="1.54494e-07 1.51487e-07 8.96323e-08"/>
+                                                    <joint name="gripper0_j_52_left" pos="0 0 0" axis="1 0 0" limited="true" range="-1.57 1.57" damping="0.01" armature="0.0002" frictionloss="0.01"/>
+                                                    <geom type="mesh" contype="0" conaffinity="0" group="1" rgba="0.792157 0.819608 0.933333 1" mesh="gripper0_finger_52_left"
+                                                          name="gripper0_finger_52_left_visual"/>
+                                                    <geom type="mesh" rgba="0 0 0.5 1" mesh="gripper0_finger_52_left" name="gripper0_finger_52_left_collision"/>
+                                                    <body name="gripper0_finger_53_left" pos="0 0 0.02">
+                                                        <inertial pos="1.79186e-05 -3.12775e-05 0.00785415" quat="0.712026 0.00206617 0.000431636 0.70215" mass="0.00308473"
+                                                                  diaginertia="1.78801e-07 1.73043e-07 6.55997e-08"/>
+                                                        <joint name="gripper0_j_53_left" pos="0 0 0" axis="1 0 0" limited="true" range="-1.57 1.57" damping="0.01" armature="0.0002"
+                                                               frictionloss="0.01"/>
+                                                        <geom type="mesh" contype="0" conaffinity="0" group="1" rgba="0.792157 0.819608 0.933333 1" mesh="gripper0_finger_53_left"
+                                                              name="gripper0_finger_53_left_visual"/>
+                                                        <geom type="mesh" rgba="0 0 0.5 1" mesh="gripper0_finger_53_left" name="gripper0_finger_53_left_collision"/>
+                                                    </body>
+                                                </body>
+                                            </body>
+                                        </body>
+                                    </body>
+                                </body>
+                            </body>
+                        </body>
+                    </body>
+                </body>
+            </body>
+
+
+            <body name="mount0_base" pos="0.0 0.0 0.01">
+                <body name="mount0_controller_box" pos="0 0 0">
+                    <inertial diaginertia="1.71363 1.27988 0.809981" mass="46.64" pos="-0.325 0 -0.38"/>
+                    <geom pos="-0.325 0 -0.38" size="0.11 0.2 0.265" type="box" name="mount0_controller_box_col" rgba="0.5 0.5 0 1"/>
+                </body>
+                <body name="mount0_pedestal_feet" pos="0 0 0">
+                    <inertial diaginertia="8.16095 9.59375 15.0785" mass="167.09" pos="-0.1225 0 -0.758"/>
+                    <geom pos="-0.1225 0 -0.758" size="0.385 0.35 0.155" type="box" name="mount0_pedestal_feet_col" rgba="0.5 0.5 0 1"/>
+                </body>
+                <body name="mount0_torso" pos="0 0 0">
+                    <inertial diaginertia="1e-08 1e-08 1e-08" mass="0.0001" pos="0 0 0"/>
+                    <geom conaffinity="0" contype="0" group="1" pos="0 0 -0.05" size="0.05 0.05 0.05" type="box" name="mount0_torso_vis" rgba="0.2 0.2 0.2 1"/>
+                </body>
+                <body name="mount0_pedestal" pos="0 0 0">
+                    <inertial diaginertia="6.0869 5.81635 4.20915" mass="60.864" pos="0 0 0" quat="0.659267 -0.259505 -0.260945 0.655692"/>
+                    <geom conaffinity="0" contype="0" group="1" mesh="mount0_pedestal" type="mesh" name="mount0_pedestal_vis" rgba="0.2 0.2 0.2 1"/>
+                    <geom pos="-0.02 0 -0.29" rgba="0.5 0.5 0 1" size="0.18 0.31" type="cylinder" name="mount0_pedestal_col"/>
+                </body>
+            </body>
+        </body>
+        <body pos="0 0 0" name="cube_main">
+            <geom rgba="0.5 0 0 1" density="1000" friction="1 0.005 0.0001" solref="0.02 1.0" solimp="0.9 0.95 0.001" type="box" size="0.02027778507108957 0.02019624626088485 0.020250415588867806"
+                  pos="0 0 0" group="0" name="cube_g0"/>
+            <geom conaffinity="0" contype="0" mass="1e-8" material="cube_redwood_mat" type="box" size="0.02027778507108957 0.02019624626088485 0.020250415588867806" pos="0 0 0" group="1"
+                  name="cube_g0_vis"/>
+            <joint type="free" name="cube_joint0"/>
+            <site type="sphere" group="0" pos="0 0 0" size="0.002 0.002 0.002" rgba="1 0 0 1" name="cube_default_site"/>
+        </body>
+    </worldbody>
+
+    <equality>
+        <tendon name="gripper0_j_20_left" tendon1="gripper0_j_20_left"/>
+        <tendon name="gripper0_j_30_left" tendon1="gripper0_j_30_left"/>
+        <tendon name="gripper0_j_40_left" tendon1="gripper0_j_40_left"/>
+        <tendon name="gripper0_j_50_left" tendon1="gripper0_j_50_left"/>
+    </equality>
+    <sensor>
+        <force name="gripper0_force_ee" site="gripper0_ft_frame"/>
+        <torque name="gripper0_torque_ee" site="gripper0_ft_frame"/>
+    </sensor>
+    <tendon>
+        <fixed name="gripper0_j_20_left">
+            <joint joint="gripper0_j_22_left" coef="1"/>
+            <joint joint="gripper0_j_23_left" coef="1"/>
+        </fixed>
+        <fixed name="gripper0_j_30_left">
+            <joint joint="gripper0_j_32_left" coef="1"/>
+            <joint joint="gripper0_j_33_left" coef="1"/>
+        </fixed>
+        <fixed name="gripper0_j_40_left">
+            <joint joint="gripper0_j_42_left" coef="1"/>
+            <joint joint="gripper0_j_43_left" coef="1"/>
+        </fixed>
+        <fixed name="gripper0_j_50_left">
+            <joint joint="gripper0_j_52_left" coef="1"/>
+            <joint joint="gripper0_j_53_left" coef="1"/>
+        </fixed>
+    </tendon>
+    <contact>
+        <exclude body1="robot0_body" body2="robot0_left_1"/>
+
+
+        <exclude body1="gripper0_palm_left" body2="gripper0_finger_11_left"/>
+        <exclude body1="gripper0_palm_left" body2="gripper0_finger_12_left"/>
+        <exclude body1="gripper0_palm_left" body2="gripper0_finger_21_left"/>
+        <exclude body1="gripper0_palm_left" body2="gripper0_finger_31_left"/>
+        <exclude body1="gripper0_palm_left" body2="gripper0_finger_41_left"/>
+        <exclude body1="gripper0_palm_left" body2="gripper0_finger_51_left"/>
+    </contact>
+</mujoco>
